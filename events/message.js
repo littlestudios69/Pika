@@ -5,8 +5,27 @@ const cooldown = {};
 module.exports = async(bot, msg) => {
     try {
         if(msg.author.bot || !msg.guild) return;
-
+        
         let guildDB = await bot.data.getGuildDB(msg.guild.id);
+        let userDB = await bot.data.getUserDB(msg.author.id);
+
+        if(msg.channel.id === guildDB.global){
+            let premium;
+            if(guildDB.premium === "true") premium = "[Premium]"
+            let embed = new Discord.MessageEmbed()
+            .setAuthor(`${userDB.rank} | ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic: true}))
+            .setDescription(`${msg.content}\n\n\n`+ "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
+            .setFooter(`From ${premium}${msg.guild.name} | ID: ${msg.author.id}`, bot.user.displayAvatarURL())
+            msg.channel.send(embed)
+            msg.delete()
+            bot.guilds.cache.forEach( async guild => {
+                if(guild.id === msg.guild.id) return
+                let guildst = await bot.data.getGuildDB(guild.id);
+                if(guildst.global !== "none"){
+                    guild.channels.resolve(guildst.global).send(embed)
+                }
+            });
+        }
         let prefix = !guildDB.prefix ? bot.config.prefix : guildDB.prefix;
         let argsSlice = prefix.length;
 
@@ -29,7 +48,6 @@ module.exports = async(bot, msg) => {
 
         if(!cmdFile) return;
 
-        let userDB = await bot.data.getUserDB(msg.author.id);
         let data = {};
         data.user = userDB;
         data.guild = guildDB;
