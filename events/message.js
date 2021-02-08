@@ -23,7 +23,7 @@ module.exports = async(bot, msg) => {
                 let guildst = await bot.data.getGuildDB(guild.id);
                 if(guildst.global !== "none"){
                     guild.channels.resolve(guildst.global).send(embed)
-                }
+                }// Send it to every guild
             });
         }
         let prefix = !guildDB.prefix ? bot.config.prefix : guildDB.prefix;
