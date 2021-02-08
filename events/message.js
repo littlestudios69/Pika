@@ -15,7 +15,7 @@ module.exports = async(bot, msg) => {
             let embed = new Discord.MessageEmbed()
             .setAuthor(`${userDB.rank} | ${msg.author.tag}`, msg.author.displayAvatarURL({dynamic: true}))
             .setDescription(`${msg.content}\n\n\n`+ "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
-            .setFooter(`From ${premium}${msg.guild.name} | ID: ${msg.author.id}`, bot.user.displayAvatarURL())
+            .setFooter(`From ${premium || ""}${msg.guild.name} | ID: ${msg.author.id}`, msg.guild.iconURL({dynamic: true}))
             msg.channel.send(embed)
             msg.delete()
             bot.guilds.cache.forEach( async guild => {
