@@ -41,7 +41,7 @@ module.exports.cooldown = (message, time) => {
     let embed = new Discord.MessageEmbed()
         .setColor('#ff0000')
         .setTitle('Slow down a bit')
-        .setDescription('You are using this command too frequently. Wait ' + time + ' more seconds.');
+        .setDescription('You are using this too frequently. Wait ' + time + ' more seconds.');
 
     return message.channel.send(embed);
 };

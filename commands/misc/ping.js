@@ -17,5 +17,5 @@ module.exports.execute = async(bot, msg, args, data) => {
         .setDescription('**' + bot.ws.ping + '** ms')
         .setColor(bot.config.color);
 
-    return msg.channel.send(embed);
+    return msg.reply(embed);
 }

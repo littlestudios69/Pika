@@ -25,5 +25,5 @@ module.exports.execute = async(bot, msg, args, data) => {
             { name: 'Library', value: 'Discord.js V' + Discord.version }
         );
 
-    return msg.channel.send(embed);
+    return msg.reply(embed);
 };
