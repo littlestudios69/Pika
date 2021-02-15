@@ -66,5 +66,5 @@ module.exports.execute = async(bot, msg, args, data) => {
             })
 
         
-
+            msg.delete()
 }

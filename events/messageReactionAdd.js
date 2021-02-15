@@ -28,7 +28,13 @@ module.exports = async(bot, reaction, user) => {
            })
         }
         
-
+        if(guildDB.ticketrole === "none") {reaction.users.remove(user)
+            return reaction.message.channel.send(`The Guild Owner didn't set a Ticket Staff Role! Please contact the Server Owner to set one!`).then(msg=>{
+                setTimeout(function(){
+                 msg.delete()
+                }, 3000)
+            })
+        }
         reaction.users.remove(user)
         let cat = reaction.message.channel.parent;
         let position = null;
@@ -83,6 +89,7 @@ module.exports = async(bot, reaction, user) => {
                 let guild = reaction.message.guild;
             
                 if(channel.name.toLowerCase().startsWith('ticket-')) {
+                   await channel.send(`<@${user.id}>, the Channel will be deleted after everything is cached etc!`)
                   reaction.users.remove(user)
                     if(channel.topic === user.id) {
                         channel.delete();
