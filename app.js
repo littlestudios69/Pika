@@ -5,7 +5,12 @@ const util = require('util');
 const mongoose = require('mongoose');
 
 /* defines & config */
-const bot = new Discord.Client();
+const bot = new Discord.Client({
+    ws: {
+        intents: 32511
+    },
+     partials: ['MESSAGE', 'CHANNEL', 'REACTION'] 
+});
 const readdir = util.promisify(fs.readdir);
 
 bot.events = new Discord.Collection();
@@ -18,7 +23,7 @@ bot.config = require('./config.json');
 async function initialize() {
     // load events
     let events = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
-    for(let e of events) {
+    for (let e of events) {
         let eventFile = require('./events/' + e);
         let eventName = e.split('.')[0];
         bot.logger.event(eventName + ' loaded.');
@@ -29,7 +34,7 @@ async function initialize() {
     let categories = await readdir('./commands/');
     categories.forEach(c => {
         let commands = fs.readdirSync('./commands/' + c + '/').filter(file => (file.endsWith('.js')));
-        for(const file of commands) {
+        for (const file of commands) {
             let commandFile = require('./commands/' + c + '/' + file);
             bot.commands.set(commandFile.name, commandFile);
         }
@@ -48,6 +53,8 @@ async function initialize() {
 
     // login bot
     bot.login(bot.config.token)
+    let client = bot
+
 }
 
 initialize();

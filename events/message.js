@@ -64,7 +64,7 @@ module.exports = async (bot, msg) => {
                     dynamic: true
                 }))
                 .setDescription(`${msg_content}\n\n\n` + "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
-                .setFooter(`From ${premium || "👥 User 👥"} ${msg.guild.name} | ID: ${msg.author.id}`, msg.guild.iconURL({
+                .setFooter(`From ${premium || ""} ${msg.guild.name} | ID: ${msg.author.id}`, msg.guild.iconURL({
                     dynamic: true
                 }))
                 .setColor(color[userDB.rank] || "#2C2F33")
