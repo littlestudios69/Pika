@@ -12,6 +12,8 @@
         "crypto": "^1.0.1",
         "discord-antiraid": "^1.2.1",
         "discord.js": "github:tayron1/discord.js",
+        "erela.js": "^2.3.2",
+        "erela.js-spotify": "^1.2.0",
         "mathjs": "^9.2.0",
         "moment": "^2.29.1",
         "moment-timezone": "^0.5.33",

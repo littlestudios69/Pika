@@ -21,8 +21,7 @@ module.exports.execute = async (bot, msg, args, data) => {
             .setTitle("Welcomer Config in " + msg.guild.name)
             .setColor(bot.config.color)
             .setDescription(`**State:** ${conf.welcomerState}\n**Join MSG:** ${conf.welcomerMSGJoin}\n**Leave MSG:** ${conf.welcomerMSGLeave}\n**Auto Role:** <@&${conf.welcomerRole}> \`${conf.welcomerRole}\`\n**Channel:** <#${conf.welcomerChannel}> \`${conf.welcomerChannel}\`\n**MSG Type:** ${conf.welcomerType}`))
-    }
-    if (args[0] === "help") {
+    } else if (args[0] === "help") {
         msg.reply(new Discord.MessageEmbed()
             .setTitle("Little Studios Welcomer Help")
             .setColor(bot.config.color)
@@ -151,6 +150,8 @@ module.exports.execute = async (bot, msg, args, data) => {
             msg.reply("Not a Valid Setting! Please try again with " + prefix + "welcomer set !")
         }
 
+    }else if(args[0] !== "help" && args[0] !== "set" && args[0] !== "on" && args[0] !== "off" && args[0] !== "reset"){
+        msg.reply("Not a valid subcmd! Try " + prefix + "welcomer help")
     }
 
 }

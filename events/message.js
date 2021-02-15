@@ -181,7 +181,7 @@ module.exports = async (bot, msg) => {
             return embeds.nsfw(msg);
 
         let isOwner = bot.config.owners.includes(msg.author.id);
-        if (cmdFile.ownerOnly && !isOwner) return;
+        if (cmdFile.ownerOnly && !isOwner) return msg.reply("This is a Bot Owner only Command!");
         if ((cmdFile.permissions && !msg.member.permissions.has(cmdFile.permissions)) && !isOwner)
             return embeds.permissions(msg, cmdFile);
 
@@ -199,8 +199,18 @@ module.exports = async (bot, msg) => {
             }
             cooldown[msg.author.id][cmdFile.name] = Date.now() + cmdFile.cooldown;
         }
-
+        try{
         cmdFile.execute(bot, msg, args, data);
+        }catch(err){
+            msg.reply(new Discord.MessageEmbed()
+            .setTitle("Ooopsie Doodles!")
+            .setDescription("We got an Error in our Command!\nI sent it in our Error Department and our Devs are looking into this!\nIf this keeps happening then join our [support server](https://discord.gg/A8DGdhSvyP)")
+            .setColor("RED"))
+            bot.channels.resolve("810912743855095809").send(new Discord.MessageEmbed()
+            .setTitle("Error Report")
+            .setDescription(JSON.stringify(err))
+            .setColor("RED"))
+        }
     } catch (err) {
         bot.logger.error('Command execution error - ' + err);
     }

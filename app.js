@@ -12,7 +12,6 @@ const bot = new Discord.Client({
      partials: ['MESSAGE', 'CHANNEL', 'REACTION'] 
 });
 const readdir = util.promisify(fs.readdir);
-
 bot.events = new Discord.Collection();
 bot.commands = new Discord.Collection();
 bot.data = require('./database/MongoDB.js');
@@ -22,6 +21,7 @@ bot.config = require('./config.json');
 
 async function initialize() {
     // load events
+
     let events = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
     for (let e of events) {
         let eventFile = require('./events/' + e);
@@ -55,6 +55,15 @@ async function initialize() {
     bot.login(bot.config.token)
     let client = bot
 
+    //errorhandling
+    bot.on("disconnect", () => console.log("The connection to the bot has been disconnected"))
+        .on("reconnecting", () => console.log("Connection will be reestablished"))
+        .on("error", (e) => console.log("An error occurred: " + e))
+        .on("warn", (info) => console.log(info))
+
+    process.on("unhandledRejection", (err) => {
+        console.error(err);
+    })
 }
 
 initialize();
