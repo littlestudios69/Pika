@@ -8,7 +8,7 @@ module.exports = {
     name: 'skip',
     description: 'Skip da Music',
     usage: "skip",
-    aliases: [],
+    aliases: ["s"],
     permissions: [],
     botPermissions: [],
     nsfw: false,

@@ -7,7 +7,7 @@ module.exports = {
     name: 'stop',
     description: 'Stop da Music',
     usage: "stop",
-    aliases: [],
+    aliases: ["leave", "fuckoff", "fucc", "off"],
     permissions: [],
     botPermissions: [],
     nsfw: false,

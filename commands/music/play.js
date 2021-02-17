@@ -7,8 +7,8 @@ const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'play',
     description: 'Play some Tunes',
-    usage: 'play',
-    aliases: [],
+    usage: 'play <songname or URL>',
+    aliases: ["p"],
     permissions: [],
     botPermissions: [],
     nsfw: false,

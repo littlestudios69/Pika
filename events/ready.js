@@ -34,7 +34,7 @@ module.exports = async(bot) => {
           let nodeid = 0
           bot.music.on("nodeConnect", (node) => {
             nodeid++
-            bot.logger.log("New Lavalink Node Connected")
+            bot.logger.ready("New Lavalink Node Connected")
           });
           bot.music.on("nodeError", (node, error) => {
       
