@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const usersDB = require('./Schematics/User.js');
 const guildsDB = require('./Schematics/Guild.js');
 const membersDB = require('./Schematics/Member.js');
+const mongoose = require('mongoose');
 
 module.exports.getUserDB = async function(userID) {
     let userDB = await usersDB.findOne({ id: userID });

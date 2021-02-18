@@ -61,12 +61,12 @@ module.exports = async (bot) => {
     let client = bot
     const Spotify = require("erela.js-spotify");
 
-    const clientID = "5c84fb675a8f4349baf262b059320fe1"; // clientID from your Spotify app
-    const clientSecret = "f8908f39e2894c83826e0fe292f5560e"; // clientSecret from your Spotify app
+    const clientID = bot.config.Spotify_ID; // clientID from your Spotify app
+    const clientSecret = bot.config.Spotify_Token; // clientSecret from your Spotify app
     const nodes = [{
-      host: "localhost",
-      port: 2333,
-      password: "youshallnotpass",
+      host: bot.config.LV_HOST,
+      port: bot.config.LV_PORT,
+      password: bot.config.LV_PW,
     }]
     const {
       Manager
@@ -87,9 +87,7 @@ module.exports = async (bot) => {
         })
       ]
     });
-    let nodeid = 0
     bot.music.on("nodeConnect", (node) => {
-      nodeid++
       bot.logger.ready("New Lavalink Node Connected")
     });
     bot.music.on("nodeError", (node, error) => {
@@ -212,7 +210,7 @@ module.exports = async (bot) => {
       channel.send(embed);
       player.destroy();
     });
-    await bot.music.init(bot.user.id)
+    
 
     bot.on("raw", (d) => bot.music.updateVoiceState(d))
     bot.user.setPresence({
@@ -223,6 +221,7 @@ module.exports = async (bot) => {
       status: 'online'
     });
     bot.logger.ready(bot.user.tag + ' initialized.');
+    await bot.music.init(bot.user.id)
   } catch (err) {
     bot.logger.error('Ready event error - ' + err);
   }

@@ -1,9 +1,15 @@
 {
-    "token": "",
-    "prefix": "p*",
-    "mongoDB": "",
-    "color": "#fff703",
-    "credits": "© by Little Studios 2019 - 2021",
-    "owners": ["510104921887211533", "265912060007677953"],
-    "googleAPI": ""
+    "token": "BOTTOKEN",
+    "prefix": "PREFIX",
+    "mongoDB": "MONGOURL",
+    "color": "COLOR OF EMBEDS",
+    "credits": "CREDITS (sth like copyright, will be on the footer of a Embed)",
+    "owners": ["YOURID"],
+    "googleAPI": "GOOGLE API TOKEN",
+    "ALPHA_VANTAGE_KEY": "ALPHA VANTAGE API KEY",
+    "Spotify_ID":"SPOTIFY CLIENT ID",
+    "Spotify_Token":"SPOTIFY CLIENT TOKEN",
+    "LV_HOST":"localhost",
+    "LV_PORT":1,
+    "LV_PW":"PASSWORD"
 }

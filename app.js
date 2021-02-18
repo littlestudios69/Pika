@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 /* defines & config */
 const bot = new Discord.Client({
+    fetchAllMembers: true,
     ws: {
         intents: 32511
     },
