@@ -10,19 +10,19 @@ module.exports = {
     botPermissions: [],
     nsfw: false,
     cooldown: 0,
-    ownerOnly: true
+    ownerOnly: false
 }
 
 module.exports.execute = async(bot, msg, args, data) => {
     let message = msg
     let member = message.mentions.members.first() || message.guild.members.resolve(args[0]);
     if(!member) return msg.reply("Member not Found")
-    if(member.id === msg.author.id) return msg.send("Why would you kick yourself?");
-    if(member.id === bot.user.id) return msg.send("Why would you kick me?");
-    if(member.id === msg.guild.ownerID) return msg.send("You can't kick the owner.");
+    if(member.id === msg.author.id) return msg.reply("Why would you kick yourself?");
+    if(member.id === bot.user.id) return msg.reply("Why would you kick me?");
+    if(member.id === msg.guild.ownerID) return msg.reply("You can't kick the owner.");
     
-    if(member.roles.highest.position >= msg.member.roles.highest.position) return msg.send("You cannot kick this user.");
-    if(!member.kickable) return msg.send("I cannot kick this user.");
+    if(member.roles.highest.position >= msg.member.roles.highest.position) return msg.reply("You cannot kick this user.");
+    if(!member.kickable) return msg.reply("I cannot kick this user.");
     
     const options = {  };
     reason = reason.length ? reason.join(" ") : null;
@@ -37,5 +37,5 @@ module.exports.execute = async(bot, msg, args, data) => {
         .setTimestamp()
         .setColor("ORANGE"))
     }
-    return msg.send(`${member.user.tag} got kicked.${reason ? ` With reason of: ${reason}` : ""}`);
+    return msg.reply(`${member.user.tag} got kicked.${reason ? ` With reason of: ${reason}` : ""}`);
 }
