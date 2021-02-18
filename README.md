@@ -22,10 +22,10 @@ First of all we do <strong>NOT</strong> support the Self Hosting of Little Pika 
 ### Installing NodeJS
 <br>
 Here are some Guides on how to install NodeJS on some Operating Systems<br>
-<a href="https://treehouse.github.io/installation-guides/windows/node-windows.html">Windows</a><br>
-<a href="https://www.geeksforgeeks.org/installation-of-node-js-on-linux">Linux <i>Ubuntu</i></a><br>
-<a href="https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-debian-10">Linux <i>Debian</i></a><br>
-<a href="https://why-mac-os.herokuapp.com">MacOS</a><br>
+<a href="https://treehouse.github.io/installation-guides/windows/node-windows.html" target=_blank>Windows</a><br>
+<a href="https://www.geeksforgeeks.org/installation-of-node-js-on-linux" target=_blank>Linux <i>Ubuntu</i></a><br>
+<a href="https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-debian-10" target=_blank>Linux <i>Debian</i></a><br>
+<a href="https://why-mac-os.herokuapp.com" target=_blank>MacOS</a><br>
 <br><br>
 
 ### Making Config.json
@@ -36,9 +36,9 @@ Just replace the placeholders with your stuff<br>
 <thead>
     <tr>
     <th>Key</th>
-    <th>Value<th>
-    </tr>
-    </thead>
+    <th>Value</th>
+</tr>
+</thead>
   <tr>
     <td class="tg-0pky">token</td>
     <td class="tg-0pky">Token from the Discord Bot</td>
@@ -95,3 +95,11 @@ Just replace the placeholders with your stuff<br>
   </tr>
 </tbody>
 </table>
+<br>
+And rename it from `config.sample.json` to `config.json`<br><br><br>
+
+### Getting it Running
+<br>
+<br>
+
+Do `npm install` and then `node app` and there you go you successfully copied Little Pika
