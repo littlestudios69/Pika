@@ -96,7 +96,7 @@ Just replace the placeholders with your stuff<br>
 </tbody>
 </table>
 <br>
-And rename it from `config.sample.json` to `config.json` and you are good to go
+And rename it from config.sample.json to config.json and you are good to go
 <br><br><br>
 
 ### Getting it Running
