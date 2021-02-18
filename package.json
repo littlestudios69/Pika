@@ -21,6 +21,7 @@
         "moment": "^2.29.1",
         "moment-timezone": "^0.5.33",
         "mongoose": "^5.10.10",
+        "node-fetch": "^2.6.1",
         "node-superfetch": "^0.1.11",
         "spotify-finder": "^2.1.1"
     },
