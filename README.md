@@ -96,10 +96,11 @@ Just replace the placeholders with your stuff<br>
 </tbody>
 </table>
 <br>
-And rename it from `config.sample.json` to `config.json`<br><br><br>
+And rename it from `config.sample.json` to `config.json`
+<br><br><br>
 
 ### Getting it Running
 <br>
 <br>
 
-Do `npm install` and then `node app` and there you go you successfully copied Little Pika
+Do `npm install` and then `node app` and there you go you successfully right up copied Little Pika
