@@ -222,6 +222,42 @@ module.exports = async (bot) => {
     });
     bot.logger.ready(bot.user.tag + ' initialized.');
     await bot.music.init(bot.user.id)
+
+    //Pika Stats, you dont really need this!
+setInterval(async function(){
+    let gcs = 0
+    await bot.guilds.cache.forEach(async guild => {
+      let guildst = await bot.data.getGuildDB(guild.id);
+      if (guildst.global !== "none") {
+          gcs++
+      } 
+  });
+  const moment = require("moment");
+require("moment-duration-format");
+const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
+
+    bot.channels.resolve("812321761478705192").messages.fetch({around: "812326289918525501", limit: 1})
+    .then(messages => {
+      messages.first().edit(new Discord.MessageEmbed()
+      .setAuthor("Little Pika Stats",bot.user.avatarURL({dynamic: true}))
+      .addField("Servers", bot.guilds.cache.size, true)
+      .addField("Users", bot.users.cache.size, true)
+      .addField("Global Chats", gcs, true)
+      .addFields(
+      { name: 'Latency', value: bot.ws.ping + 'ms', inline: true },
+      { name: 'Library', value: 'Discord.js V' + Discord.version+ "/tayron1", inline: true },
+      {name: "Version", value: bot.config.Version, inline: true},
+      {name: "Uptime", value: duration, inline: true},
+      {name: "NodeJS Version", value: process.version, inline: true},
+      {name: "Lavalink Players Running", value: bot.music.players.size, inline: true},
+
+      )
+
+      .setColor("RANDOM")
+      .setFooter("Last Updated")
+      .setTimestamp());
+    });
+  }, 60000)
   } catch (err) {
     bot.logger.error('Ready event error - ' + err);
   }
