@@ -1,6 +1,7 @@
 const ms = require("ms")
 const Spotify = require("spotify-finder")
 const Discord = require('discord.js');
+let config = require("../config.json")
 
 const Canvas = require('canvas'),
   {
@@ -36,8 +37,8 @@ function roundedImage(ctx, x, y, width, height, radius) {
 }
 const spotify = new Spotify({
   consumer: {
-    key: bot.config.Spotify_ID, // from v2.1.0 is required
-    secret: bot.config.Spotify_Token // from v2.1.0 is required
+    key: config.Spotify_ID, // from v2.1.0 is required
+    secret: config.Spotify_Token // from v2.1.0 is required
   }
 })
 
