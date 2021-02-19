@@ -7,7 +7,7 @@ const {
 } = require("discord.js")
 const ms = require("ms")
 const Spotify = require("spotify-finder")
-let config = require("../config.json")
+let config = require("../../config.json")
 const Canvas = require('canvas'),
     {
         CanvasRenderingContext2D
