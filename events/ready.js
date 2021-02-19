@@ -36,8 +36,8 @@ function roundedImage(ctx, x, y, width, height, radius) {
 }
 const spotify = new Spotify({
   consumer: {
-    key: '5c84fb675a8f4349baf262b059320fe1', // from v2.1.0 is required
-    secret: 'f8908f39e2894c83826e0fe292f5560e' // from v2.1.0 is required
+    key: bot.config.Spotify_ID, // from v2.1.0 is required
+    secret: bot.config.Spotify_Token // from v2.1.0 is required
   }
 })
 
