@@ -1,5 +1,9 @@
 # Little Pika V6
-
+## Support Server 
+<a href="https://discord.gg/kUuNQwnvCF">Click here</a>
+## Bot Invite
+<a href="https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8">Click here</a>
+<br><br><br>
 Little Pika is a Multipurpose Discord Bot with 100k+ Users!<br>
 Little Pika has all Commands that you need for your Server!<br>
 And now its even <strong>OPEN SOURCE</strong>!<br><br><br><br>
