@@ -63,7 +63,7 @@ module.exports = async (bot, msg) => {
                 .setAuthor(`${ranks[userDB.rank] || ""} | ${msg.author.tag} | Level: ${userDB.level}`, msg.author.displayAvatarURL({
                     dynamic: true
                 }))
-                .setDescription(`${msg_content}\n\n\n` + "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
+                .setDescription(`${msg_content}\n\n\n` + "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id="+bot.user.id+"&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
                 .setFooter(`From ${premium || ""} ${msg.guild.name} | ID: ${msg.author.id}`, msg.guild.iconURL({
                     dynamic: true
                 }))
@@ -87,7 +87,7 @@ module.exports = async (bot, msg) => {
                         const description = $("meta[property='og:description']")[0] || $("meta[name='twitter:description']")[0]
 
                     
-                        embed.setDescription(msg_content.replace(testlink, "") + `` + "\n\n[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
+                        embed.setDescription(msg_content.replace(testlink, "") + `` + "\n\n[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id="+bot.user.id+"&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
                         embed.addField(`<:youtube:808741805893222472> ${title ? title.attribs.content : "no title"} <:youtube:808741805893222472>`,`${description ? description.attribs.content : 'no description'}\n\n<:youtube:808741805893222472> [Click here to get to the Video](${testlink}) <:youtube:808741805893222472>`)
                         embed.setThumbnail(image ? image.attribs.content : "no image")
                     })
@@ -95,7 +95,7 @@ module.exports = async (bot, msg) => {
 
                 }else{
                     embed.setImage(testlink)
-                    embed.setDescription(msg_content.replace(testlink,"")+ `\n\n\n` + "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id=660798952123400202&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
+                    embed.setDescription(msg_content.replace(testlink,"")+ `\n\n\n` + "[`🤖 Bot Invite`](https://discord.com/oauth2/authorize?client_id="+bot.user.id+"&scope=bot&permissions=8) | [`🌎 Website`](https://little-studios.tech) | [`🆙 Vote`](https://top.gg/bot/660798952123400202/vote)")
                     return glsend(msg)
                 }
                 
