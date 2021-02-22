@@ -15,6 +15,7 @@ A Guide for how to use Pika is linked <a href="https://little-pika-2-0.gitbook.i
 <br><br>
 
 ## Self Hosting
+### We recommend using the modified fork from discord.js by tayron1! Because of the Stickers
 <br>
 First of all we do <strong>NOT</strong> support the Self Hosting of Little Pika <i>but yea do what you want to do</i>
 <br><br>
