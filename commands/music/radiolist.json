@@ -1,0 +1,175 @@
+{
+    "Australia": [{
+        "TripleJ": "http://abc.net.au/res/streaming/audio/mp3/triplej.pls"
+    }],
+    "Belgium": [{
+            "Mint": "http://audiostream.rtl.be/mint"
+        },
+        {
+            "RTBF": "http://radios.rtbf.be/pure-128.mp3"
+        }
+    ],
+    "Denmark": [{
+        "Danmarks-Radio": "http://live-icy.gss.dr.dk:8000/A/A05H.mp3"
+    }],
+    "Germany": [{
+            "89.0RTL": "https://fhhalle.streamabc.net/fhhal-rtllive-mp3-128-2875815?sABC=60338pr6%230%2300nr52q9ppo94061o49759p3r3oo00s7%23fcn&context=fHA6LTE=&amsparams=playerid:spa;skey:1613991142"
+        },
+        {
+            "bigFM": "http://streams.bigfm.de/bigfm-deutschland-128-aac?usid=0-0-H-A-D-30"
+        },
+        {
+            "YouFM": "http://metafiles.gl-systemhaus.de/hr/youfm_2.m3u"
+        },
+        {
+            "Simulator1": "https://simulator1.stream.laut.fm/simulator1"
+        },
+        {
+            "AntenneBayern": "https://s8-webradio.antenne.de/antenne"
+        },
+        {
+            "1Live": "https://addrad.io/4WRP7j"
+        },
+        {
+            "HitRadioFFH": "https://mp3.ffh.de/radioffh/hqlivestream.aac"
+        },
+        {
+            "RadioSunshine": "https://stream.sunshine-live.de/hq/mp3-128/surfmusik/"
+        },
+        {
+            "PlanetRadio": "https://mp3.planetradio.de/planetradio/hqlivestream.mp3"
+        },
+        {
+            "AntenneFrankfurt": "https://addrad.io/4454tk8"
+        },
+        {
+            "RadioPaloma": "https://pool.radiopaloma.de/RADIOPALOMA.mp3"
+        },
+        {
+            "AmazingClassicHits": "https://stream.amazingradios.com/classic-hits"
+        },
+        {
+            "RockAntenne": "https://mp3channels.webradio.antenne.de/rockantenne"
+        },
+        {
+            "Bayern1": "https://addrad.io/4WRNMM"
+        },
+        {
+            "Deutschlandfunk": "http://st01.dlf.de/dlf/01/128/mp3/stream.mp3"
+        },
+        {
+            "AnimeRadio": "http://stream.animeradio.de/animeradio.mp3"
+        },
+        {
+            "GayFM": "http://icepool.silvacast.com/GAYFM.mp3"
+        },
+        {
+            "FFN":"https://ffn-de-hz-fal-stream07-cluster01.radiohost.de/ffn_mp3-192?ref=radioplayer"
+        }
+
+    ],
+    "Canada": [{
+        "ahfm": "http://www.ah.fm/192k.m3u"
+    }],
+    "Netherlands": [{
+        "NPO": "http://icecast.omroep.nl/3fm-bb-mp3.m3u"
+    }],
+    "Norway": [{
+            "B.I.G": "http://live-bauerno.sharp-stream.com/station10_no_hq"
+        },
+        {
+            "RadioNorge": "https://live-bauerno.sharp-stream.com/radionorge_no_mp3"
+        },
+        {
+            "BitterSweetMusic-NORWAY": "http://bittersweetmusic.24-7.ro:8520/live.no"
+        },
+        {
+            "TheBeat": "http://stream.thebeat.no/beat128.mp3"
+        }
+    ],
+    "Austria": [{
+            "88.6": "http://radio886.at/streams/radio_88.6/mp3"
+        },
+        {
+            "Hitradio-Ö3": "https://orf-live.ors-shoutcast.at/oe3-q1a"
+        },
+        {
+            "Radio-U1": "https://live.u1-radio.at/;stream.mp3"
+        }
+    ],
+    "Spain": [{
+        "MuyBuena": "https://stream.mediasector.es/radio/8010/muybuena.mp3"
+    }],
+    "Russia": [{
+            "ЕвропаПлюс": "https://hls-02-europaplus.emgsound.ru/11/128/playlist.m3u8"
+        },
+        {
+            "ComedyRadio": "https://pub0301.101.ru:8000/stream/air/aac/64/202"
+        },
+        {
+            "MonteCarlo": "https://stream.zenolive.com/953wvvz4gseuv"
+        }
+    ],
+    "Croatian": [{
+        "ExtraFM": "http://streams.extrafm.hr:8110/;"
+    }],
+    "China": [{
+            "ChineseMusicWorld": "https://radio.chinesemusicworld.com/chinesemusic.ogg?_=1"
+        },
+        {
+            "ChinaRadioInternational": "https://lhttp.qingting.fm/live/1005/64k.mp3"
+        },
+        {
+            "HitFM": "http://cri-lh.akamaihd.net/i/cri887_1@183455/master.m3u8"
+        },
+        {
+            "LoveRadio": "https://lhttp.qingting.fm/live/273/64k.mp3"
+        },
+        {
+            "ChinaPlus": "http://sk.cri.cn/am846.m3u8"
+        }
+    ],
+    "Japan": [{
+            "VocaloidRadio": "http://curiosity.shoutca.st:8019/stream"
+        },
+        {
+            "ManganimeRadio": "https://streamingv2.shoutcast.com/Manganimema"
+        },
+        {
+            "RPGMR": "http://gyusyabu.ddo.jp:8000/;"
+        }
+    ],
+    "Israel": [{
+            "GalGalatz": "https://glzicylv01.bynetcdn.com/glglz_mp3"
+        },
+        {
+            "RadioAgape": "https://s3.radio.co/s43b65d791/listen"
+        },
+        {
+            "NoshmimMizrahit": "https://www.rs.mizrahit.fm:7777/;"
+        },
+        {
+            "Israel1Radio": "http://jradio.ilcast.com:8025/;stream/1/;"
+        },
+        {
+            "GeulaFM": "https://broadcast.adpronet.com/radio/8010/radio.mp3?ver=370660"
+        },
+        {
+            "RadioHamesh": "http://995.livecdn.biz:8000/995fm"
+        }
+
+    ],
+    "United Kingdom": [{
+            "UpBeatRadio": "http://live.upbeat.pw"
+        },
+        {
+            "TruckersFM": "https://live.truckers.fm/"
+        },
+        {
+            "SmoothRadio": "https://media-ssl.musicradio.com/SmoothLondonMP3"
+        }
+    ],
+    "Global": [{
+        "KSCC": "https://relay.broadcastify.com/bd1zfhsj5gvmy74.mp3"
+    }]
+}
