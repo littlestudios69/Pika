@@ -237,7 +237,7 @@ setInterval(async function(){
 require("moment-duration-format");
 const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
-    bot.channels.resolve("812321761478705192").messages.fetch({around: "812326289918525501", limit: 1})
+    bot.channels.resolve("812321761478705192").messages.fetch({around: "813490224784605235", limit: 1})
     .then(messages => {
       messages.first().edit(new Discord.MessageEmbed()
       .setAuthor("Little Pika Stats",bot.user.avatarURL({dynamic: true}))
