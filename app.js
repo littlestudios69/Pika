@@ -10,7 +10,7 @@ const bot = new Discord.Client({
     ws: {
         intents: 32511
     },
-     partials: ['MESSAGE', 'CHANNEL', 'REACTION'] 
+     partials: ['MESSAGE', 'CHANNEL', 'REACTION', "GUILD_MEMBER"] 
 });
 const readdir = util.promisify(fs.readdir);
 bot.events = new Discord.Collection();

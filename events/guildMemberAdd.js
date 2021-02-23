@@ -10,6 +10,7 @@ module.exports = async (bot, user) => {
     if(guildDB.welcomerState === "on"){
         if(guildDB.welcomerChannel){
             let guild = bot.guilds.resolve(user.guild.id)
+            guild.members.fetch()
             let channel = await bot.channels.resolve(guildDB.welcomerChannel)
             if(channel && guildDB.welcomerMSGJoin && guildDB.welcomerType){
                 var memberCount = guild.members.cache.filter(member => !member.user.bot).size;
