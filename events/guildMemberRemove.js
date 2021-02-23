@@ -31,13 +31,15 @@ module.exports = async (bot, user) => {
     if (guildDB.log_state === "on") {
         if(user.user.bot === true){
             let wait = new Discord.MessageEmbed()
-                .setAuthor(`[BOT] ${user.user.tag} just left!`, user.user.displayAvatarURL({
+            .setTitle("User left")
+                .setAuthor(`[BOT] ${user.user.tag}`, user.user.displayAvatarURL({
                     dynamic: true
                 }))
                return bot.channels.resolve(guildDB.logs).send(wait)
         }
         let wait = new Discord.MessageEmbed()
-            .setAuthor(`${member.user.tag} just left!`, member.user.displayAvatarURL({
+        .setTitle("User left")
+            .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL({
                 dynamic: true
             }))
         bot.channels.resolve(guildDB.logs).send(wait)

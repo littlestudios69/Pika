@@ -226,6 +226,7 @@ module.exports = async (bot) => {
 
     //Pika Stats, you dont really need this!
 setInterval(async function(){
+  if(bot.user.id === "576812872122761237") return;
     let gcs = 0
     await bot.guilds.cache.forEach(async guild => {
       let guildst = await bot.data.getGuildDB(guild.id);

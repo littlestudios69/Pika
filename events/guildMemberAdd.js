@@ -42,7 +42,8 @@ module.exports = async (bot, user) => {
     if (guildDB.log_state === "on") {
         if(user.user.bot === true){
             let wait = new Discord.MessageEmbed()
-                .setAuthor(`[BOT] ${user.user.tag} just joined!`, user.user.displayAvatarURL({
+            .setTitle("New User")
+                .setAuthor(`[BOT] ${user.user.tag}`, user.user.displayAvatarURL({
                     dynamic: true
                 }))
                return bot.channels.resolve(guildDB.logs).send(wait)
@@ -50,10 +51,11 @@ module.exports = async (bot, user) => {
         let created = member.user.createdAt
         let date = `${created.getHours()}:${created.getMinutes()}:${created.getSeconds()}.${created.getMilliseconds()}, ${created.getDate() == 0?(created.getDate()+1)+"st":(created.getDate() == 1?(created.getDate()+1)+"nd":(created.getDate() == 2?(created.getDate()+1)+"rd":(created.getDate()+1)+"th"))} ${created.getMonth()}, ${created.getFullYear()}`
         let wait = new Discord.MessageEmbed()
-            .setAuthor(`${member.user.tag} just joined!`, member.user.displayAvatarURL({
+            .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL({
                 dynamic: true
             }))
-            .setDescription("Doing Background checks please wait <a:loading:740277933633175605>")
+            .setTitle("New User")
+            .setDescription("Loading... <a:loading:740277933633175605>")
         bot.channels.resolve(guildDB.logs).send(wait).then(async (msg) => {
             const {
                 DRepClient
@@ -66,7 +68,8 @@ module.exports = async (bot, user) => {
             }
             
             let rep = await getReputation(member.user.id)
-            let text = ""
+            let text_good = ""
+            let text_bad = ""
             //let age = Date.now() - member.user.createdAt / 1000 / 60 / 60 / 24
             //AUFPASSEN: name: ' Discord gejoint' value: new Date(user.createdTimestamp).toLocaleDateString()
             //AUFPASSEN: name: ' Discord gejoint' value: new Date(user.joinedTimestamp).toLocaleDateString()
@@ -74,29 +77,32 @@ module.exports = async (bot, user) => {
             let unpoints = 0
             let unsafe = false
             if (rep.downvotes > rep.upvotes) {
-                text += `<a:bad:810548634226786325> More Downvotes than Upvotes on [discordrep](https://discordrep.com/u/${member.user.id}) *${rep.downvotes} Down / ${rep.upvotes} Up*\n`
+                text_bad += `[\`- More Downvotes than Upvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
                 unpoints++
             } else if(rep.upvotes === 0){
-                text += `<a:bad:810548634226786325> 0 Upvotes on [discordrep](https://discordrep.com/u/${member.user.id}) *${rep.downvotes} Down / ${rep.upvotes} Up*\n`
+                text_bad += `[\`- 0 Upvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
                 
             }else
-             text += `<a:good:810548506217283596> More Upvotes than Downvotes on [discordrep](https://discordrep.com/u/${member.user.id}) *${rep.downvotes} Down / ${rep.upvotes} Up*\n`
+             text_good += `[\`- More Upvotes than Downvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
             if (member.user.displayAvatarURL().startsWith("https://cdn.discordapp.com/embed/avatars")) {
-                text += `<a:bad:810548634226786325> Using a Default Avatar\n`
+                text_bad += `\`- Using a Default Avatar\`\n`
                 unpoints++
-            } else text += `<a:good:810548506217283596> Not using a Default Avatar\n`
+            } else text_good += `\`- Not using a Default Avatar\`\n`
             if(createdAgo < 30){
-                text += `<a:bad:810548634226786325> Not a Month old \`${createdAgo} days\`\n`
+                text_bad += `\`- Not a Month old (Created ${createdAgo} days ago)\`\n`
                 unpoints++
-            } else text += `<a:good:810548506217283596> Older than a Month \`${createdAgo} Days\`\n`
+            } else text_good += `\`- Older than a Month (Created ${createdAgo} Days ago)\`\n`
             if(unpoints > 1){
                 unsafe = true
             }
+            if(text_bad === "") text_bad = "`- Nothing found`"
+            if(text_good === "") text_good = "`- Nothing found`"
             let embed = new Discord.MessageEmbed()
-                .setAuthor(`${member.user.tag} just joined!`, member.user.displayAvatarURL({
+                .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                 }))
-                .setDescription(`${text}\n${unsafe ? "<a:bad:810548634226786325> User is Potentially Unsafe!" : "<a:good:810548506217283596> User is Safe!"}`)
+                .setTitle("New User")
+                .setDescription(`${unsafe ? `⚠️ | **User may be unsafe!**` : "✅ | **User is safe.**"}\n\n<a:good:810548506217283596> | **Good Points found**\n${text_good}\n\n<a:bad:810548634226786325> | **Bad things found**\n${text_bad}`)
                 .setColor(unsafe ? "RED" : "GREEN")
                 msg.delete()
                 bot.channels.resolve(guildDB.logs).send(embed)
