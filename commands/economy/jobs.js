@@ -2,7 +2,6 @@ const mongo = require('../../database/mongo')
 const profileSchema = require("../../database/Schematics/Profile")
 const Discord = require("discord.js")
 const ms = require("ms")
-const prefix = "p*"
 
 module.exports = {
     name: 'jobs',
@@ -18,6 +17,7 @@ module.exports = {
 
     module.exports.execute = async(bot, msg, args, data) => {
         let prefix = !data.guild.prefix ? bot.config.prefix : data.guild.prefix;
+        prefix = prefix.replace(/(?<!\\)([*_~|`])/g, '\\$1');
         let message = msg
         let client = bot
         const target = message.author
