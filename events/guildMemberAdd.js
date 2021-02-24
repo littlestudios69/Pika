@@ -13,8 +13,9 @@ module.exports = async (bot, user) => {
             guild.members.fetch()
             let channel = await bot.channels.resolve(guildDB.welcomerChannel)
             if(channel && guildDB.welcomerMSGJoin && guildDB.welcomerType){
-                var memberCount = guild.members.cache.filter(member => !member.user.bot).size;
-                var memberCount2 = guild.members.cache.size;
+				var members = await guild.members.fetch({force: true})
+				var memberCount = members.filter(function(member) { return !member.user.bot }).size;
+                var memberCount2 = members.size;
                 let text = guildDB.welcomerMSGJoin.replace("{user}", member.user).replace("{user.tag}", user.user.tag).replace("{user.name}", member.user.username).replace("{user.id}", member.user.id).replace("{server.name}", member.guild.name).replace("{server.id}", member.guild.id).replace("{server.members}", memberCount).replace("{server.members.all}", memberCount2)
 
                 let type = guildDB.welcomerType;
