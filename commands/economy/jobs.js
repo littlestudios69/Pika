@@ -63,7 +63,7 @@ module.exports = {
         await mongo().then(async (mongoose) => {
             try {
                 if(!args[0]) {
-                    message.reply("Please do, p*jobs list, p*jobs assign <job name>")
+                    message.reply(`Please do, ${prefix}jobs list, ${prefix}jobs assign <job name>`)
                     return;
                 }
                 if (args[0].toLowerCase() === "list") {
