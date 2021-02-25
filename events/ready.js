@@ -285,7 +285,7 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       let arrByID = votes.filter(filterByID)
     let embed_user = new Discord.MessageEmbed()
     .setAuthor(`Thanks for Voting ${user.tag}!`, user.displayAvatarURL({dynamic: true}))
-    .setDescription(`Thanks for Voting ${user.tag}!\nYou now have access to some more Commands!\nI hope you enjoy using me!\nIf you do then make sure to leave a Feedback **[here](https://top.gg/bot/${bot.user.id}#reviews)**\n\nYou can vote again in 12h!\n` + "You already voted `"+arrByID.length+ "` time/s this Month!\n*by voting you agree getting dmed with a thank you message*")
+    .setDescription(`Thanks for Voting ${user.tag}!\nYou now have access to some more Commands!\nI hope you enjoy using me!\nIf you do then make sure to leave a Feedback **[here](https://top.gg/bot/${bot.user.id}#reviews)**\n\nYou can vote again in 12h!\n` + "You already voted `"+arrByID.length+ "` time/s this Month!\nTo get the `Voter` role join [this server](https://discord.gg/ekpXZcb7Bc) and make sure to stay in until your next Vote!\n*by voting you agree getting dmed with a thank you message*")
     .setColor("GREEN")
     .setImage("https://i.imgur.com/YWFnUkg.gif")
     .setFooter("Voted at")
@@ -300,7 +300,7 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       if(channel){
       let embed = new Discord.MessageEmbed()
       .setAuthor(`Thanks for Voting ${user.tag}!`, user.displayAvatarURL({dynamic: true}))
-      .setDescription(`Thanks for Voting ${user.tag}!\n\nYou can [vote](https://top.gg/bot/${bot.user.id}/vote) yourself **[here](https://top.gg/bot/${bot.user.id}/vote)**!\n` + user.tag +" already voted `"+arrByID.length+ "` time/s this Month!\nAll Time Votes: "+votes.length +"\n*by voting you agree getting dmed with a thank you message*")
+      .setDescription(`Thanks for Voting ${user.tag}!\n\nYou can [vote](https://top.gg/bot/${bot.user.id}/vote) yourself **[here](https://top.gg/bot/${bot.user.id}/vote)**!\n` + user.tag +" already voted `"+arrByID.length+ "` time/s this Month!\nAll Time Votes: `"+votes.length +"`\n*by voting you agree getting dmed with a thank you message*")
       .setColor("GREEN")
       .setImage("https://i.imgur.com/YWFnUkg.gif")
       .setFooter("Voted at")
