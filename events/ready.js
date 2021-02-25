@@ -270,10 +270,10 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
 
   app.post('/dblwebhook', wh.middleware(), async (req, res) => {
       
-    let user = await bot.users.cache.fetch(req.vote.user)
-    let channel = await bot.channels.cache.fetch("784479631951659028")
-    let channel2 = await bot.channels.cache.fetch("814509420926468176")
-    let member = await bot.guilds.cache.fetch("784062479918563328").members.cache.fetch(req.vote.user)
+    let user = await bot.users.fetch(req.vote.user)
+    let channel = await bot.channels.fetch("784479631951659028")
+    let channel2 = await bot.channels.fetch("814509420926468176")
+    let member = await bot.guilds.fetch("784062479918563328").members.fetch(req.vote.user)
     let votes = await bot.topgg.getVotes()
     function filterByID(item) {
       if (item.id === user.id) {
