@@ -308,7 +308,7 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       channel.send(embed)
       }
       if(channel2){
-      channel2.edit({name: `🆙 ${votes.length} Votes this Month`})
+      channel2.edit({name: `🆙 ${votes.length} Votes this Month`, type: "1"})
       }
     }catch{}
     
