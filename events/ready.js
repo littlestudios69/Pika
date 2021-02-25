@@ -270,13 +270,13 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
 
   app.post('/dblwebhook', wh.middleware(), async (req, res) => {
       
-    let user = await bot.users.resolve(req.vote.user)
-    let channel = await bot.channels.resolve("784479631951659028")
-    let channel2 = await bot.channels.resolve("814509420926468176")
-    let member = await bot.guilds.resolve("784062479918563328").members.resolve(req.vote.user)
+    let user = await bot.users.cache.fetch(req.vote.user)
+    let channel = await bot.channels.cache.fetch("784479631951659028")
+    let channel2 = await bot.channels.cache.fetch("814509420926468176")
+    let member = await bot.guilds.cache.fetch("784062479918563328").members.cache.fetch(req.vote.user)
     let votes = await bot.topgg.getVotes()
     function filterByID(item) {
-      if (item.id === user) {
+      if (item.id === user.id) {
         return true
       }
       return false;
@@ -308,7 +308,7 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       channel.send(embed)
       }
       if(channel2){
-      channel2.setName(`🆙 ${votes.length} Votes this Month`)
+      channel2.edit({name: `🆙 ${votes.length} Votes this Month`})
       }
     }catch{}
     
