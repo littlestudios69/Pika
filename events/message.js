@@ -179,7 +179,8 @@ module.exports = async (bot, msg) => {
 
         if (!msg.channel.nsfw && cmdFile.nsfw)
             return embeds.nsfw(msg);
-
+        if(!await bot.topgg.hasVoted(msg.author.id) && cmdFile.voteRestricted)
+         return embeds.vote(msg, bot ,cmdFile)
         let isOwner = bot.config.owners.includes(msg.author.id);
         if (cmdFile.ownerOnly && !isOwner) return msg.reply("This is a Bot Owner only Command!");
         if ((cmdFile.permissions && !msg.member.permissions.has(cmdFile.permissions)) && !isOwner)

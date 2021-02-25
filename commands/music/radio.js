@@ -13,12 +13,14 @@ module.exports = {
     botPermissions: [],
     nsfw: false,
     cooldown: 0,
-    ownerOnly: false
+    ownerOnly: false,
+    voteRestricted: true
 }
 
 
     
     module.exports.execute = async(bot, msg, args, data) => {
+       
         let prefix = !data.guild.prefix ? bot.config.prefix : data.guild.prefix;
         if(!args[0]) return msg.reply("This is a SubCommand only Command! To see all Aviable Radios try the subcommand `list` or `l`")
         if(args[0].toLowerCase() === "list" || args[0].toLowerCase() === "l"){

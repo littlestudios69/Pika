@@ -37,6 +37,15 @@ module.exports.execute = async(bot, msg, args, data) => {
     let user = message.mentions.members.first() || message.guild.members.resolve(args[0]);
     if(!user) return msg.reply("I need a User!")
     user = user.user
+	let votes = await bot.topgg.getVotes()
+	function filterByID(item) {
+		if (item.id === user.id) {
+		  return true
+		}
+		return false;
+	  }
+	  
+	  let arrByID = votes.filter(filterByID)
     const userFlags = user.flags ? user.flags.toArray().filter(flag => !deprecated.includes(flag)) : [];
 		const embed = new MessageEmbed()
 			.setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true }))
@@ -59,6 +68,8 @@ module.exports.execute = async(bot, msg, args, data) => {
 						member.roles.highest.id === defaultRole.id ? 'None' : member.roles.highest.name, true)
 					.addField('❯ Hoist Role', member.roles.hoist ? member.roles.hoist.name : 'None', true)
 					.addField(`❯ Roles (${roles.length})`, roles.length ? trimArray(roles, 6).join(', ') : 'None')
+					.addField(`❯ Voted? `, await bot.topgg.hasVoted(user.id) ? "Yes" : "No", true)
+					.addField(`❯ Votes in Month `, "Voted "+arrByID.length+" time/s this Month", true)
 					.setColor(member.displayHexColor);
 			} catch(err) {
                 console.log(err)

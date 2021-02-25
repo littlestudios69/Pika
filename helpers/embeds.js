@@ -18,6 +18,15 @@ module.exports.nsfw = (message) => {
 
     return message.channel.send(embed);
 };
+module.exports.vote = (message, bot, cmd) => {
+    let embed = new Discord.MessageEmbed()
+        .setColor('#ff0000')
+        .setTitle('Access restricted')
+        .setDescription(`This Command is Vote Restricted!\nPlease [vote](https://top.gg/bot/${bot.user.id}/vote) for ${bot.user.username} in order to use this Command here: [Click Me](https://top.gg/bot/${bot.user.id}/vote)\n\n*by voting you help getting ${bot.user.username} more attention and more users, and you help the devs getting more motivation*`)
+        .setImage("https://i.imgur.com/5BqfNXr.gif")
+
+    return message.channel.send(embed);
+};
 
 module.exports.permissions = (message, cmdFile) => {
     let embed = new Discord.MessageEmbed()

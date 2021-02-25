@@ -260,6 +260,72 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       .setTimestamp());
     });
   }, 60000)
+  const express = require('express')
+  const {
+      Webhook
+  } = require(`@top-gg/sdk`)
+
+  const app = express()
+  const wh = new Webhook(bot.config.webhook)
+
+  app.post('/dblwebhook', wh.middleware(), async (req, res) => {
+      
+    let user = await bot.users.resolve(req.vote.user)
+    let channel = await bot.channels.resolve("784479631951659028")
+    let channel2 = await bot.channels.resolve("814509420926468176")
+    let member = await bot.guilds.resolve("784062479918563328").members.resolve(req.vote.user)
+    let votes = await bot.topgg.getVotes()
+    function filterByID(item) {
+      if (item.id === user) {
+        return true
+      }
+      return false;
+      }
+      
+      let arrByID = votes.filter(filterByID)
+    let embed_user = new Discord.MessageEmbed()
+    .setAuthor(`Thanks for Voting ${user.tag}!`, user.displayAvatarURL({dynamic: true}))
+    .setDescription(`Thanks for Voting ${user.tag}!\nYou now have access to some more Commands!\nI hope you enjoy using me!\nIf you do then make sure to leave a Feedback **[here](https://top.gg/bot/${bot.user.id}#reviews)**\n\nYou can vote again in 12h!\n` + "You already voted `"+arrByID.length+ "` time/s this Month!\n*by voting you agree getting dmed with a thank you message*")
+    .setColor("GREEN")
+    .setImage("https://i.imgur.com/YWFnUkg.gif")
+    .setFooter("Voted at")
+    .setTimestamp()
+    try{
+      user.send(embed_user)
+      if(member){
+        try{
+        member.roles.add("784453355647926293")
+        }catch{}
+      }
+      if(channel){
+      let embed = new Discord.MessageEmbed()
+      .setAuthor(`Thanks for Voting ${user.tag}!`, user.displayAvatarURL({dynamic: true}))
+      .setDescription(`Thanks for Voting ${user.tag}!\n\nYou can [vote](https://top.gg/bot/${bot.user.id}/vote) yourself **[here](https://top.gg/bot/${bot.user.id}/vote)**!\n` + user.tag +" already voted `"+arrByID.length+ "` time/s this Month!\nAll Time Votes: "+votes.length +"\n*by voting you agree getting dmed with a thank you message*")
+      .setColor("GREEN")
+      .setImage("https://i.imgur.com/YWFnUkg.gif")
+      .setFooter("Voted at")
+      .setTimestamp()
+      channel.send(embed)
+      }
+      if(channel2){
+      channel2.setName(`🆙 ${votes.length} Votes this Month`)
+      }
+    }catch{}
+    
+      
+  })
+  app.get("/", (req, res) => {
+      res.send("Yes")
+  })
+
+  app.listen(3000)
+  setInterval(() => {
+    if(bot.user.id === "576812872122761237") return;
+    bot.topgg.postStats({
+      serverCount: bot.guilds.cache.size,
+      shardCount: client.options.shardCount
+    })
+  }, 1800000) // post every 30 minutes
   } catch (err) {
     bot.logger.error('Ready event error - ' + err);
   }

@@ -5,7 +5,7 @@ module.exports = {
     description: 'Displays the bot stats.',
     usage: 'botstats',
     aliases: ['stats', 'info'],
-    permissions: ['ADMINISTRATOR'],
+    permissions: [],
     botPermissions: [],
     nsfw: false,
     cooldown: 0,
