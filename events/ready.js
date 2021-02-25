@@ -273,7 +273,7 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
     let user = await bot.users.fetch(req.vote.user)
     let channel = await bot.channels.fetch("784479631951659028")
     let channel2 = await bot.channels.fetch("814509420926468176")
-    let member = await bot.guilds.fetch("784062479918563328").members.fetch(req.vote.user)
+    let member = await bot.guilds.resolve("784062479918563328").members.fetch(req.vote.user)
     let votes = await bot.topgg.getVotes()
     function filterByID(item) {
       if (item.id === user.id) {
