@@ -108,7 +108,7 @@ module.exports = async (bot, user) => {
                 .setColor(unsafe ? "RED" : "GREEN")
                 msg.delete()
                 bot.channels.resolve(guildDB.logs).send(embed)
-                if(guildDB.quarantineState === "on"){
+                if(guildDB.quarantineState === "on" && unsafe){
                     try{
                    let role = await bot.guilds.resolve(user.guild.id).roles.resolve(guildDB.quarantineRole)
                    await member.roles.add(role)
