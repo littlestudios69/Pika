@@ -99,7 +99,7 @@ module.exports = async (bot, msg) => {
                     return glsend(msg)
                 }
                 
-            } else if (["png", "gif", "jpg"].some(e => link.endsWith(e))) {
+            } else if (["png", "gif", "jpg", "jpeg"].some(e => link.endsWith(e))) {
                 message.reply("Processing your image...").then(fmsg => {
 
                     client.channels.resolve("808726972322676766").send(`Uploaded by: ${message.author.tag}`, {
