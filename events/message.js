@@ -5,9 +5,10 @@ const cooldown = {};
 module.exports = async (bot, msg) => {
     try {
         if (msg.author.bot || !msg.guild) return;
+       
         let message = msg
         let client = bot
-
+   
         let guildDB = await bot.data.getGuildDB(msg.guild.id);
         let userDB = await bot.data.getUserDB(msg.author.id);
         let prefix = !guildDB.prefix ? bot.config.prefix : guildDB.prefix;
