@@ -291,10 +291,10 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
     .setFooter("Voted at")
     .setTimestamp()
     try{
-      user.send(embed_user)
+     return  user.send(embed_user)
       if(member){
         try{
-        member.roles.add("784453355647926293")
+     return   member.roles.add("784453355647926293")
         }catch{}
       }
       if(channel){
@@ -305,10 +305,10 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       .setImage("https://i.imgur.com/YWFnUkg.gif")
       .setFooter("Voted at")
       .setTimestamp()
-      channel.send(embed)
+return      channel.send(embed)
       }
       if(channel2){
-      channel2.edit({name: `🆙 ${votes.length} Votes this Month`, type: "1"})
+      return channel2.edit({name: `🆙 ${votes.length} Votes this Month`, type: "1"})
       }
     }catch{}
     
