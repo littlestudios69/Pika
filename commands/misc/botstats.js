@@ -19,8 +19,8 @@ module.exports.execute = async(bot, msg, args, data) => {
         .setFooter(bot.config.credits)
         .setColor(bot.config.color)
         .addFields(
-            { name: 'Guilds', value: bot.guilds.cache.size, inline: true},
-            { name: 'Users', value: bot.users.cache.size, inline: true },
+            { name: 'Guilds', value: bot.guildcache.size, inline: true},
+            { name: 'Users', value: bot.usercache.size, inline: true },
             { name: 'Latency', value: bot.ws.ping + 'ms', inline: true },
             { name: 'Library', value: 'Discord.js V' + Discord.version }
         );

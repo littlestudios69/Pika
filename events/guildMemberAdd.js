@@ -7,6 +7,9 @@ module.exports = async (bot, user) => {
     
 
     let member = user;
+	
+	bot.usercache.set(member.user.id, member.user);
+	
     if(guildDB.welcomerState === "on"){
         if(guildDB.welcomerChannel){
             let guild = bot.guilds.resolve(user.guild.id)

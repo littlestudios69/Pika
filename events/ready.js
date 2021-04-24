@@ -60,6 +60,18 @@ module.exports = async (bot) => {
     } = require("discord.js")
 
     let client = bot
+	
+	for(let guildid of Array.from(bot.guildcache.keys())){
+		bot.guilds.fetch(guildid).then((guild) => {
+			bot.guildcache.set(guildid, guild);
+			guild.members.fetch().then((members) => {
+				members.each((member) => {
+					bot.usercache.set(member.user.id, member.user);
+				})
+			})
+		});
+	}
+	
     const Spotify = require("erela.js-spotify");
 
     const clientID = bot.config.Spotify_ID; // clientID from your Spotify app

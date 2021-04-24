@@ -6,6 +6,22 @@ module.exports = async (bot, user) => {
     let guildDB = await bot.data.getGuildDB(user.guild.id);
     
     let member = user;
+	
+	let isInOtherGuild = false;
+	bot.guildcache.each(async (guild) => {
+		if(guild.id != member.guild.id){
+			try {
+				let member2 = await guild.members.fetch(member.user.id);
+				if(member2 != null){
+					isInOtherGuild = true;
+				}
+			}catch (ex){}
+		}
+	})
+	if(!isInOtherGuild){
+		bot.usercache.delete(member.user.id);
+	}
+	
     if(guildDB.welcomerState === "on"){
         if(guildDB.welcomerChannel){
             let guild = bot.guilds.resolve(user.guild.id)
