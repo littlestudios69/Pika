@@ -23,6 +23,7 @@ module.exports.execute = async(bot, msg, args, data) => {
     let shy = await bot.users.fetch("704708159901663302")
     let mac = await bot.users.fetch("705080774113886238")
     let niekol = await bot.users.fetch("323049053094936576")
+    let block = await bot.users.fetch("124220790001500161")
 
 let embed = new Discord.MessageEmbed()
     .setTitle('Little Pika V6 - Credits')
@@ -35,7 +36,9 @@ let embed = new Discord.MessageEmbed()
 
     <:arrow_r:811955030462169109> <@704708159901663302> \`(${shy.tag})\` - Doing the Economy Commands
 
-    <:arrow_r:811955030462169109> <@323049053094936576> \`(${niekol.tag})\` - Doing new Moderation Bot for Support Server`)
+    <:arrow_r:811955030462169109> <@323049053094936576> \`(${niekol.tag})\` - Doing new Moderation Bot for Support Server
+
+    <:arrow_r:811955030462169109> <@124220790001500161> \`(${block.tag})\` - Bug Fixes and minor edits`)
     .addField("Testers", `<:arrow_r:811955030462169109> <@705080774113886238> \`(${mac.tag})\` - Testing literally Everything
 
     <:arrow_r:811955030462169109> Some alt Accounts from the Developers `)
