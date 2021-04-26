@@ -11,7 +11,7 @@ module.exports = {
     botPermissions: [],
     nsfw: false,
     cooldown: 0,
-    ownerOnly: true
+    ownerOnly: false
 }
 
 module.exports.execute = async(bot, msg, args, data) => {
