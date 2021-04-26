@@ -66,7 +66,7 @@ module.exports = {
                     }, {
                         upsert: true,
                     })
-                    return message.reply(`Successfully deposited :coin: **${formatNumber(currentWallet)}** from the bank.`)
+                    return message.reply(`Successfully deposited :coin: **${formatNumber(currentWallet)}** into the bank.`)
                 }
                 toDeposit = parseInt(args[0])
                 if (isNaN(toDeposit)) return message.channel.send("Please provide a number of coins")
