@@ -4,7 +4,7 @@ const { isDuration } = require('moment');
 module.exports = {
   name: 'hackban',
   description: 'Ban users who are not on your Server',
-  usage: 'hackban <member> <reason>',
+  usage: 'hackban <UserID> <reason>',
   aliases: [],
   permissions: [],
   botPermissions: [],
