@@ -12,8 +12,8 @@ module.exports = {
   ownerOnly: false
 }
 
-module.exports.execute = async(bot, msg, args) {
-   let avEmbed = new Discord.MessageEmbed();
+module.exports.execute = async(bot, msg, args) => {
+	let avEmbed = new Discord.MessageEmbed();
    
 	if (!message.mentions.users.first()) {
 		avEmbed.setAuthor(`${bot.users.cache.get(target.id).tag}'s avatar!`, message.author.displayAvatarURL());
