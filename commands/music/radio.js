@@ -14,7 +14,7 @@ module.exports = {
     nsfw: false,
     cooldown: 0,
     ownerOnly: false,
-    voteRestricted: true
+    voteRestricted: false
 }
 
 
