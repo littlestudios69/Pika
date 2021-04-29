@@ -74,6 +74,7 @@ module.exports = async (bot, user) => {
             
             let rep = await getReputation(member.user.id)
             let text_good = ""
+            let text_neutral = ""
             let text_bad = ""
             //let age = Date.now() - member.user.createdAt / 1000 / 60 / 60 / 24
             //AUFPASSEN: name: ' Discord gejoint' value: new Date(user.createdTimestamp).toLocaleDateString()
@@ -81,12 +82,13 @@ module.exports = async (bot, user) => {
             let createdAgo = Math.floor((new Date() - created) / ( 1000 * 60 * 60 * 24 ));
             let unpoints = 0
             let unsafe = false
+            let neutral = false
             if (rep.downvotes > rep.upvotes) {
                 text_bad += `[\`- More Downvotes than Upvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
                 unpoints++
             } else if(rep.upvotes === 0){
-                text_bad += `[\`- 0 Upvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
-                
+                text_neutral += `[\`- 0 Upvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
+                neutral = true
             }else
              text_good += `[\`- More Upvotes than Downvotes on discordrep (${rep.downvotes} Down / ${rep.upvotes} Up)\`](https://discordrep.com/u/${member.user.id})\n`
             if (member.user.displayAvatarURL().startsWith("https://cdn.discordapp.com/embed/avatars")) {
@@ -101,14 +103,15 @@ module.exports = async (bot, user) => {
                 unsafe = true
             }
             if(text_bad === "") text_bad = "`- Nothing found`"
+            if(text_neutral === "") text_good = "`- Nothing found`"
             if(text_good === "") text_good = "`- Nothing found`"
             let embed = new Discord.MessageEmbed()
                 .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL({
                     dynamic: true
                 }))
                 .setTitle("New User")
-                .setDescription(`${unsafe ? `⚠️ | **User may be unsafe!**` : "✅ | **User is safe.**"}\n\n<a:good:810548506217283596> | **Good Points found**\n${text_good}\n\n<a:bad:810548634226786325> | **Bad things found**\n${text_bad}`)
-                .setColor(unsafe ? "RED" : "GREEN")
+                .setDescription(`${unsafe ? `⚠️ | **User may be unsafe!**` : "✅ | **User is safe.**"}\n\n<a:good:810548506217283596> | **Good Points found**\n${text_good}\n\n<a:neutral:837313281789394985> | **Neutral things found**\n${text_neutral}\n\n<a:bad:810548634226786325> | **Bad things found**\n${text_bad}`)
+                .setColor(unsafe ? "RED" : (neutral ? "ORANGE" : "GREEN"))
                 msg.delete()
                 bot.channels.resolve(guildDB.logs).send(embed)
                 if(guildDB.quarantineState === "on" && unsafe){
