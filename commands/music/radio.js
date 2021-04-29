@@ -31,7 +31,7 @@ module.exports = {
               }
               let embed = new Discord.MessageEmbed()
               .setTitle("Little Pika Supported Radios")
-              .setDescription("Here is a list of all Countries that we have Radios from!\n Use `" + prefix + "radio list <country>` to get the Radios of that Country!"+`\n\n\`${countries.join("`, `")}\``+ "\n\nTo Suggest a Station use " + prefix + "radio suggest <name> <stream url MP3/AAC/M3U> <country>")
+              .setDescription("**NEW**\nCheckout our new Radio: TAC-FM! Play it by typing: `"+ prefix + "radio play TAC-FM`!\n**NEW**\n\nHere is a list of all Countries that we have Radios from!\n Use `" + prefix + "radio list <country>` to get the Radios of that Country!"+`\n\n\`${countries.join("`, `")}\``+ "\n\nTo Suggest a Station use " + prefix + "radio suggest <name> <stream url MP3/AAC/M3U> <country>")
               .setColor(bot.config.color)
               .setFooter(bot.config.credits)
               msg.reply(embed)
