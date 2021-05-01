@@ -65,8 +65,46 @@
         },
         {
             "FFN":"https://ffn-de-hz-fal-stream07-cluster01.radiohost.de/ffn_mp3-192?ref=radioplayer"
+        },
+        {
+            "RexFM":"http://stream.laut.fm/rexradio"
+        },
+        {
+            "RexFM-Dance":"http://stream.laut.fm/rexfm-dance"
+        },
+        {
+            "IloveRadio":"https://streams.ilovemusic.de/iloveradio1.mp3"
+        },
+        {
+            "MashupFM-Remix":"http://stream.laut.fm/mashupfm"
+        },
+        {
+            "MashupFM-Charts":"http://stream.laut.fm/mashupfmcharts"
+        },
+        {
+            "MashupFM-Party":"http://stream.laut.fm/mashupfmparty"
+        },
+        {
+            "Ilove2Dance":"https://streams.ilovemusic.de/iloveradio2.mp3"
+        },
+        {
+            "IloveMashup":"https://streams.ilovemusic.de/iloveradio5.mp3"
+        },
+        {
+            "ReyFM":"https://listen.reyfm.de/original_128kbps.mp3"
+        },
+        {
+            "ReyFM-Gaming":"https://listen.reyfm.de/gaming_128kbps.mp3"
+        },
+        {
+            "ReyFM-Mashup":"https://listen.reyfm.de/mashup_128kbps.mp3"
+        },
+        {
+            "ReyFM-Bass":"https://listen.reyfm.de/bass_128kbps.mp3"
+        },
+        {
+            "ReyFM-Charts":"https://listen.reyfm.de/charts_128kbps.mp3"
         }
-
     ],
     "Canada": [{
         "ahfm": "http://www.ah.fm/192k.m3u"
