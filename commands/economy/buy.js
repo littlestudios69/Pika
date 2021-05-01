@@ -194,7 +194,7 @@ module.exports = {
                 let chosenItem = args.slice(0).join(" ")
 
                 for (let i = 0; i < Items.length; i++) {
-                    if (chosenItem === Items[i].name || chosenItem === Items[i].name.toLowerCase() || chosenItem === Items[i].name.toUpperCase()) {
+                    if (chosenItem.toLowerCase() === Items[i].name.toLowerCase()) {
                         if (currentWallet < Items[i].cost) return message.reply(`You don't have enough money to purchase that!`)
 
                         await profileSchema.findOneAndUpdate({
@@ -213,7 +213,7 @@ module.exports = {
                     }
                 }
 
-                return message.reply(`Could not find a **${chosenItem}** in the shop.\nMake sure you entered your choice case sensitive!`)
+                return message.reply(`Could not find a **${chosenItem}** in the shop.\nMake sure you entered your choice correctly spelled!`)
             } catch (err) {
                 console.log(err)
                 message.channel.send(`An error occurred: \`${err.message}\`\nUsually this happens once, please try again.`)
