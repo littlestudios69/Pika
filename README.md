@@ -19,7 +19,9 @@ A Guide for how to use Pika is linked <a href="https://little-pika-2-0.gitbook.i
 <br><br>
 
 ## Self Hosting
-### We recommend using the modified fork from discord.js by tayron1! Because of the Stickers
+##We advise using the modified fork from discord.js by tayron1!
+<br>
+Because of the Stickers <strong>AND more importantly because it has added functionality for measuring the guild and user count corrently. By using the official discord.js version the bot could crash because of not having that custom functionality</strong>
 <br>
 First of all we do <strong>NOT</strong> support the Self Hosting of Little Pika <i>but yea do what you want to do</i>
 <br><br>
