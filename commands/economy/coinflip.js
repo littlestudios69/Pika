@@ -6,7 +6,7 @@ const ms = require("ms")
 module.exports = {
     name: 'coinflip',
     description: 'Flip a Coin',
-    usage: "coinflip <tails/heads> <amount>",
+    usage: "coinflip <heads/tails> <amount>",
     aliases: ["cf"],
     permissions: [],
     botPermissions: [],
@@ -20,10 +20,17 @@ module.exports = {
         let client = bot
         let target = message.author
         let userId = target.id
+		
+        let guildDB = await bot.data.getGuildDB(msg.guild.id);
+        let prefix = !guildDB.prefix ? bot.config.prefix : guildDB.prefix;
         
+		if(args.length < 2){
+            message.channel.send('Usage: `' + prefix + 'coinflip <heads/tails> <amount to bet>`')
+            return;
+		}
         const UserChoice = args[0].toLowerCase()
         const UserCoinsToBet = parseInt(args[1]) 
-        if(!UserChoice){
+        if(UserChoice != "tails" && UserChoice != "heads"){
             message.channel.send('Please provide a response of either heads or tails')
             return;
         }
