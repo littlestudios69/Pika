@@ -15,19 +15,19 @@ module.exports = {
 module.exports.execute = async(bot, msg, args) => {
 	let avEmbed = new Discord.MessageEmbed();
    
-	if (!message.mentions.users.first()) {
-		avEmbed.setAuthor(`${bot.users.cache.get(target.id).tag}'s avatar!`, message.author.displayAvatarURL());
+	if (!msg.mentions.members.first()) {
+		avEmbed.setAuthor(`${msg.author.tag}'s avatar!`, msg.author.displayAvatarURL());
 		avEmbed.setColor('RANDOM');
-		avEmbed.setImage(message.author.displayAvatarURL({ dynamic: true }));
+		avEmbed.setImage(msg.author.displayAvatarURL({ dynamic: true }));
      
-		return message.channel.send(avEmbed);
+		return msg.channel.send(avEmbed);
 	} else {
-		let target = message.mentions.members.first();
+		let target = msg.mentions.members.first();
      
 		avEmbed.setTitle(`${bot.users.cache.get(target.id).tag}'s avatar!`, target.user.displayAvatarURL());
 		avEmbed.setColor('RANDOM');
 		avEmbed.setImage(bot.users.cache.get(target.id).displayAvatarURL({ dynamic: true }));
      
-		return message.channel.send(avEmbed);
+		return msg.channel.send(avEmbed);
 	}
 }
