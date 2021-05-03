@@ -1,6 +1,7 @@
 const mongo = require('../../database/mongo')
 const profileSchema = require("../../database/Schematics/Profile")
 const Discord = require("discord.js")
+const ms = require("ms")
 
 module.exports = {
     name: 'weekly',
