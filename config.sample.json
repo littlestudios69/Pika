@@ -9,6 +9,7 @@
     "ALPHA_VANTAGE_KEY": "ALPHA VANTAGE API KEY",
     "Spotify_ID":"SPOTIFY CLIENT ID",
     "Spotify_Token":"SPOTIFY CLIENT TOKEN",
+    "Corrency_Token":"CORRENCY CONVERTER (https://free.currencyconverterapi.com/) API KEY",
     "LV_HOST":"localhost",
     "LV_PORT":1,
     "LV_PW":"PASSWORD",

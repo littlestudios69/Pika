@@ -30,7 +30,7 @@ module.exports.execute = async(bot, msg, args, data) => {
 
     if (base === target) return msg.reply(`Converting ${base} to ${target} is the same value, dummy.`);
     try {
-        const rate = await fetchRate(base, target);
+        const rate = await fetchRate(bot, base, target);
         let embed = new Discord.MessageEmbed()
         .setTitle("Currency Convert")
         .setDescription(`**__Finished__**\n**Amount:** ${formatNumber(amount)}\n**Base:** ${base}\n**Target:** ${target}\n\n**__Result:__**\n${formatNumber(amount)} ${base} is ${formatNumber(amount* rate)} ${target}.`)
@@ -44,16 +44,12 @@ module.exports.execute = async(bot, msg, args, data) => {
     }
     
 
-async function fetchRate(base, target) {
-    const query = `${base}-${target}`;
+async function fetchRate(bot, base, target) {
+    const query = `${base}_${target}`;
     if (rates.has(query)) return rates.get(query);
     const { body } = await request
-        .get('https://api.exchangeratesapi.io/latest')
-        .query({
-            base,
-            symbols: target
-        });
-    rates.set(query, body.rates[target]);
+        .get('https://free.currconv.com/api/v7/convert?q=' + query + '&compact=ultra&apiKey=' + bot.config.Currency_Token);
+    rates.set(query, body[query]);
     setTimeout(() => rates.delete(query), 1.8e+6);
-    return body.rates[target];
+    return body[query];
 }
