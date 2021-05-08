@@ -47,7 +47,7 @@ module.exports.execute = async(bot, msg, args, data) => {
         
         res = await search2(client, search, message.author, message, player);
         if (res.loadType == "LOAD_FAILED") {
-            if(search.includes("https://open.spotify.com")){
+            if(search.startsWith("https://open.spotify.com/")){
                 setTimeout(() => player.destroy(), 60000);
                 console.log(res)
                 return message.channel.send("10 or more Tracks you Provided can't be found on Youtube!\n*Please note that we search for Spotify songs on Youtube!*")
@@ -59,7 +59,7 @@ module.exports.execute = async(bot, msg, args, data) => {
         }
         switch (res.loadType) {
             case "NO_MATCHES":
-                if(search.includes("https://open.spotify.com")){
+                if(search.startsWith("https://open.spotify.com/")){
                 message.channel.send("10 or more Tracks you Provided can't be found on Youtube!\n*Please note that we search for Spotify songs on Youtube!*")
                 if (!player.queue.current) {
                     setTimeout(() => player.destroy(), 60000);

@@ -76,7 +76,7 @@ module.exports = async (bot, msg) => {
                     
             var testlink = message.content.split(/ +/g).filter(f => f.includes("http") && f.includes("://"))[0]
             if (testlink) {
-                if(testlink.startsWith("https://youtu.be" || testlinks.startsWith("https://youtube.com"))){
+                if(testlink.startsWith("https://youtu.be/" || testlinks.startsWith("https://youtube.com/"))){
                     const fetch = require("node-fetch")
                     const cheerio = require("cheerio")
                     
