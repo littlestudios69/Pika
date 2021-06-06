@@ -271,7 +271,7 @@ const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [m
       .setFooter("Last Updated")
       .setTimestamp());
     });
-  }, 60000)
+  }, 300000)
   const express = require('express')
   const {
       Webhook
