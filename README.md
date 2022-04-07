@@ -1,4 +1,7 @@
 # Little Pika V6
+
+## This repository has been archived and will not receive any further updates! However if you still wanna use it you can work on it yourself or create a fork.
+
 ## Support Server 
 <a href="https://discord.gg/kUuNQwnvCF">Click here</a>
 ## Bot Invite
